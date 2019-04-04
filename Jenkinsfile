@@ -33,9 +33,9 @@ node{
          def k8Apply= "kubectl apply -f deployment.yaml" 
          def k8PWD = "Pwc@12345689"
         // withCredentials(string[(credentialsId: 'k8pwd', variable: 'Pwc@12345689')]) {
-          sh "sudo -S sshpass -p ${k8PWD} ssh -o StrictHostKeyChecking=no pwcuser@52.163.94.232" 
-          sh "sudo -S sshpass -p ${k8PWD} scp -r deployment.yaml pwcuser@52.163.94.232:/home/pwcuser" 
-          sh "sudo -S sshpass -p ${k8PWD} ssh  -o StrictHostKeyChecking=no pwcuser@52.163.94.232 ${k8Apply}"
+          sh "sudo sshpass -p ${k8PWD} ssh -o StrictHostKeyChecking=no pwcuser@52.163.94.232" 
+          sh "sudo sshpass -p ${k8PWD} scp -r deployment.yaml pwcuser@52.163.94.232:/home/pwcuser" 
+          sh "sudo sshpass -p ${k8PWD} ssh  -o StrictHostKeyChecking=no pwcuser@52.163.94.232 ${k8Apply}"
          }
        }
   
