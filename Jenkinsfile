@@ -20,7 +20,7 @@ node{
       }  
    
       stage('Publish Docker Image'){
-            def dockerpwd = 123Sravya@
+            def dockerpwd = "123Sravya@"
         // withCredentials([(credentialsId: 'dockerpwd', variable: '123Sravya@')]) {
               sh "docker login -u skarra006 -p dockerpwd"
          }
