@@ -20,7 +20,7 @@ node{
       }  
    
       stage('Publish Docker Image'){
-         withCredentials([string(credentialsId: 'dockerpwd', variable: '123Sravya@')]) {
+         withCredentials([(credentialsId: 'dockerpwd', variable: '123Sravya@')]) {
               sh "docker login -u skarra006 -p $dockerpwd"
          }
         sh 'docker push skarra006/javademoapp_$JOB_NAME:$BUILD_NUMBER'
@@ -31,7 +31,7 @@ node{
       // ********* For Azure Cluster**************************
       stage('Deploy'){
          def k8Apply= "kubectl apply -f deployment.yaml" 
-         withCredentials([string(credentialsId: 'k8pwd', variable: 'Pwc@12345689')]) {
+         withCredentials([(credentialsId: 'k8pwd', variable: 'Pwc@12345689')]) {
           sh "sshpass -p ${k8PWD} ssh -o StrictHostKeyChecking=no pwcuser@52.163.94.232" 
           sh "sshpass -p ${k8PWD} scp -r deployment.yaml pwcuser@52.163.94.232:/home/pwcuser" 
           sh "sshpass -p ${k8PWD} ssh  -o StrictHostKeyChecking=no pwcuser@52.163.94.232 ${k8Apply}"
