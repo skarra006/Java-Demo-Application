@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: sk-deployment
-        image: rajnikhattarrsinha/javademoapp_#JOB-NAME#:#BUILD-NUMBER#
+        image: skarra006/javademoapp_#JOB-NAME#:#BUILD-NUMBER#
         ports:
         - containerPort: 8080
 ---
