@@ -23,7 +23,6 @@ node{
             def dockerpwd = "123Sravya@"
         // withCredentials([(credentialsId: 'dockerpwd', variable: '123Sravya@')]) {
               sh "docker login -u skarra006 -p dockerpwd"
-         }
         sh 'docker push skarra006/javademoapp_$JOB_NAME:$BUILD_NUMBER'
         sh "sed -i.bak 's/#BUILD-NUMBER#/$BUILD_NUMBER/' deployment.yaml"
         sh "sed -i.bak 's/#JOB-NAME#/$JOB_NAME/' deployment.yaml"
