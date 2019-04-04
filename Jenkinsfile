@@ -36,6 +36,7 @@ node{
           sh "sshpass -p ${k8PWD} scp -r deployment.yaml pwcuser@52.163.94.232:/home/pwcuser" 
           sh "sshpass -p ${k8PWD} ssh  -o StrictHostKeyChecking=no pwcuser@52.163.94.232 ${k8Apply}"
          }
+      }
        }
   
        
